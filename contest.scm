@@ -2,12 +2,12 @@
 ;;;
 ;;; Please do not include your name or personal info in this file.
 ;;;
-;;; Title: <Your title here>
+;;; Title: the sad and sudden death of kiwibot
 ;;;
 ;;; Description:
-;;;   <It's your masterpiece.
-;;;    Use these three lines to describe
-;;;    its inner meaning.>
+;;; why did you leave us?
+;;; here alone in the darkness
+;;; dying of hunger
 
 (define (map fn vals) 
   (if (null? vals) 
@@ -19,17 +19,19 @@
 (define-macro (for sym vals expr)
   (list 'map (list 'lambda (list sym) expr) vals))
 
+(define (pos x y)
+  (penup)
+  (setposition x y)
+  (pendown)
+)
+
 (define (drawcircle radius x y)
-    (penup)
-    (setposition x y)
-    (pendown)
+    (pos x y)
     (begin_fill)
     (circle radius)
     (end_fill)
-    (penup)
-    (setposition (- x radius 15) (- y 10))
+    (pos (- x radius 15) (- y 10))
     (color "white")
-    (pendown)
     (write 'RIP 16 'Arial)
     (penup)
 )
@@ -59,9 +61,7 @@
 )
 
 (define (drawrectangle x y width height c)
-    (penup)
-    (setposition x y)
-    (pendown)
+    (pos x y)
     (color c)
     (begin_fill)
     (setheading -90)
@@ -83,11 +83,9 @@
     (drawrectangle 150 162 300 262 "black")
     (drawrectangle 100 100 200 150 "white")
     (drawrectangle 65 45 45 45 "dodgerblue")
-    (penup)
-    (setposition -50 50)
+    (pos -50 50)
     (setheading 135)
     (color "dodgerblue")
-    (pendown)
     (begin_fill)
     (fd 40)
     (right 90)
@@ -102,11 +100,9 @@
     (fd 10)
     (end_fill)
     (drawrectangle -160 312 10 150 "black")
-    (penup)
-    (setposition -170 312)
+    (pos -170 312)
     (setheading -130)
     (color "dodgerblue")
-    (pendown)
     (begin_fill)
     (fd 100)
     (right 37)
@@ -114,10 +110,8 @@
     (right 90)
     (fd 60)
     (end_fill)
-    (penup)
-    (setposition -50 -90)
+    (pos -50 -90)
     (color "white")
-    (pendown)
     (write 'kiwibot)
 )
 
