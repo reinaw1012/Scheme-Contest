@@ -405,6 +405,10 @@ def tscheme_right(n):
     _tscheme_prep()
     turtle.right(n)
 
+@builtin("write")
+def tscheme_write(text,size_turtle=16,font_turtle="Comic Sans MS",type_turtle="bold"):
+    turtle.write(text.upper(),font=(font_turtle,size_turtle,type_turtle))
+
 @builtin("circle")
 def tscheme_circle(r, extent=None):
     """Draw a circle with center R units to the left of the turtle (i.e.,
